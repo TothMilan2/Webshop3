@@ -10,23 +10,34 @@
     <div>
         <h1 class="text-center m-4">Webshop</h1>
     </div>
-    <div class="container-fluid p-4">
-        <table id="data" class="table table-striped table-dark table-hover"> 
-            <thead class="table-dark">
-                <tr class="table-dark">
+    <div class="container-md d-flex justify-content-center p-4 flex-column gap-2 w-25">
+        <input type="text" id="newName" placeholder="Name">
+        <input type="email" id="newEmail" placeholder="Email">
+        <input type="text" id="newCity" placeholder="City">
+        <input type="text" id="newPhone" placeholder="Phone">
+        <input type="text" id="newRole" placeholder="Role">
+        <button class="btn btn-primary" id="addUserBtn">Add User</button>
+    </div>
+    <div class="container-fluid p-4 w-50">
+        <table class="table table-striped table-dark table-hover"> 
+            <thead>
+                <tr >
                     <th>Name</th>
                     <th>Email</th>
                     <th>City</th>
                     <th>Phone</th>
                     <th>Role</th>
+                    <th>Módosítás</th>
+                    <th>Törlés</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="data">
                
             </tbody>
 
         </table>
     </div>
+    
     <script src="app.js"></script>
 </body>
 </html>
