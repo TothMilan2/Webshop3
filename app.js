@@ -18,14 +18,22 @@ document.getElementById('addUserBtn').addEventListener('click', () => {
     let p = document.getElementById("newPhone").value
     let r = document.getElementById("newRole").value
 
-    //let correctName = /^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+( [A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+)*$/
+    let correctName = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/
 
-    if(nev || e || c || p || r ==""){
+    let correctEmail = /^[a-zA-Z._%+-]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}$/
+
+    if(nev=="" || e=="" || c=="" || p=="" ){
         alert("Minden mezőt ki kell tötleni!")
 
     }
+    else if(correctName.test(nev)){
+        alert("Helytelen név formátum (helyes: Újnév Sándor)")
+    }
+    else if(correctEmail.test(e)){
+        alert("Helytelen email formátum (helyes: valami123@gmail.com)")
+    }
     else if(isNaN(p)){
-        alert("A telefon mezőbe csak szám")
+        alert("A telefon mezőbe csak szám mehet")
     }
     else{
          fetch('http://localhost:3000/users', {
@@ -66,7 +74,7 @@ function modify(userId){
         let p = document.getElementById("newPhone").value
         let r = document.getElementById("newRole").value
 
-
+    
 
     fetch(`http://localhost:3000/users/${userId}`, {
         method: 'PUT',
